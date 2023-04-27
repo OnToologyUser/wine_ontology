@@ -1,0 +1,461 @@
+@prefix : <http://www.semanticweb.org/atorres/ontologies/2023/3/spanish_wine_ontology#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/atorres/ontologies/2023/3/spanish_wine_ontology#> .
+
+<http://www.semanticweb.org/atorres/ontologies/2023/3/spanish_wine_ontology> rdf:type owl:Ontology ;
+                                                                              rdfs:comment """Authors:
+
+Andrés Torres Rivera
+Mario
+Nacho
+
+
+Spanish wines ontology designed for the Knowledge Reprsentation class of 2023/1."""@en .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled
+<http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2000/01/rdf-schema#sameAs
+rdfs:sameAs rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/atorres/ontologies/2023/3/spanish_wine_ontology#hasProducer
+:hasProducer rdf:type owl:ObjectProperty ;
+             rdfs:domain :Wine ;
+             rdfs:range :Producer ;
+             rdfs:comment "Asserts that an instance of a wine has a Producer." .
+
+
+###  http://www.semanticweb.org/atorres/ontologies/2023/3/spanish_wine_ontology#hasProductionYear
+:hasProductionYear rdf:type owl:ObjectProperty ;
+                   rdfs:domain :Wine ;
+                   rdfs:range :Year ;
+                   rdfs:comment "Asserts that an instance of a wine has a ProductionYear." .
+
+
+###  http://www.semanticweb.org/atorres/ontologies/2023/3/spanish_wine_ontology#hasRegion
+:hasRegion rdf:type owl:ObjectProperty ;
+           rdfs:domain :Wine ;
+           rdfs:range :Region ;
+           rdfs:comment "Asserts that an instance of a wine has a Region." .
+
+
+###  http://www.semanticweb.org/atorres/ontologies/2023/3/spanish_wine_ontology#hasVariety
+:hasVariety rdf:type owl:ObjectProperty ;
+            rdfs:domain :Wine ;
+            rdfs:range :Variety ;
+            rdfs:comment "Asserts that an instance of a wine has a grape Variety." .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/atorres/ontologies/2023/3/spanish_wine_ontology#hasAcidityOf
+:hasAcidityOf rdf:type owl:DatatypeProperty ;
+              rdfs:domain :Acidity ;
+              rdfs:range xsd:int ;
+              rdfs:comment "Asserts that an instance of a wine has an Acidity value." .
+
+
+###  http://www.semanticweb.org/atorres/ontologies/2023/3/spanish_wine_ontology#hasBodyOf
+:hasBodyOf rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Body ;
+           rdfs:range xsd:int ;
+           rdfs:comment "Asserts that an instance of a wine has a Body value." .
+
+
+###  http://www.semanticweb.org/atorres/ontologies/2023/3/spanish_wine_ontology#hasPrice
+:hasPrice rdf:type owl:DatatypeProperty ;
+          rdfs:domain :Price ;
+          rdfs:range xsd:decimal ;
+          rdfs:comment "Asserts that an instance of a wine has a Price value." .
+
+
+###  http://www.semanticweb.org/atorres/ontologies/2023/3/spanish_wine_ontology#hasRating
+:hasRating rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Rating ;
+           rdfs:range xsd:decimal ;
+           rdfs:comment "Asserts that an instance of a wine has a Rating value." .
+
+
+###  http://www.semanticweb.org/atorres/ontologies/2023/3/spanish_wine_ontology#hasReviews
+:hasReviews rdf:type owl:DatatypeProperty ;
+            rdfs:domain :Num_Reviews ;
+            rdfs:range xsd:int ;
+            rdfs:comment "Asserts that an instance of a wine has Reviews." .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/atorres/ontologies/2023/3/spanish_wine_ontology#Acidity
+:Acidity rdf:type owl:Class ;
+         rdfs:subClassOf :WineProfile ;
+         rdfs:comment "Acidity index." .
+
+
+###  http://www.semanticweb.org/atorres/ontologies/2023/3/spanish_wine_ontology#Body
+:Body rdf:type owl:Class ;
+      rdfs:subClassOf :WineProfile ;
+      rdfs:comment "Body index." .
+
+
+###  http://www.semanticweb.org/atorres/ontologies/2023/3/spanish_wine_ontology#DistributionData
+:DistributionData rdf:type owl:Class ;
+                  rdfs:subClassOf :Producer ;
+                  rdfs:comment "Distribution data." .
+
+
+###  http://www.semanticweb.org/atorres/ontologies/2023/3/spanish_wine_ontology#Europe
+:Europe rdf:type owl:Class ;
+        rdfs:subClassOf :Region ;
+        rdfs:comment "Europe wine regions." .
+
+
+###  http://www.semanticweb.org/atorres/ontologies/2023/3/spanish_wine_ontology#Fortified
+:Fortified rdf:type owl:Class ;
+           rdfs:subClassOf :Variety ;
+           rdfs:comment "Fortified wine." ;
+           rdfs:sameAs "https://dbpedia.org/page/Fortified_wine" .
+
+
+###  http://www.semanticweb.org/atorres/ontologies/2023/3/spanish_wine_ontology#Num_Reviews
+:Num_Reviews rdf:type owl:Class ;
+             rdfs:subClassOf :WineRating ;
+             rdfs:comment "Numbers of reviews." .
+
+
+###  http://www.semanticweb.org/atorres/ontologies/2023/3/spanish_wine_ontology#Price
+:Price rdf:type owl:Class ;
+       rdfs:subClassOf :DistributionData ;
+       rdfs:comment "Wine price tag." .
+
+
+###  http://www.semanticweb.org/atorres/ontologies/2023/3/spanish_wine_ontology#Producer
+:Producer rdf:type owl:Class ;
+          rdfs:comment "Producer data." .
+
+
+###  http://www.semanticweb.org/atorres/ontologies/2023/3/spanish_wine_ontology#ProductionDate
+:ProductionDate rdf:type owl:Class ;
+                rdfs:comment "Production data." .
+
+
+###  http://www.semanticweb.org/atorres/ontologies/2023/3/spanish_wine_ontology#Rating
+:Rating rdf:type owl:Class ;
+        rdfs:subClassOf :WineRating ;
+        rdfs:comment "Rating value." .
+
+
+###  http://www.semanticweb.org/atorres/ontologies/2023/3/spanish_wine_ontology#Red
+:Red rdf:type owl:Class ;
+     rdfs:subClassOf :Variety ;
+     rdfs:comment "Red wine." ;
+     rdfs:sameAs "https://dbpedia.org/page/Red_wine" .
+
+
+###  http://www.semanticweb.org/atorres/ontologies/2023/3/spanish_wine_ontology#Region
+:Region rdf:type owl:Class ;
+        rdfs:comment "Wine regions." .
+
+
+###  http://www.semanticweb.org/atorres/ontologies/2023/3/spanish_wine_ontology#Spain
+:Spain rdf:type owl:Class ;
+       rdfs:subClassOf :Europe ;
+       rdfs:comment "Spain wine regions." .
+
+
+###  http://www.semanticweb.org/atorres/ontologies/2023/3/spanish_wine_ontology#Sparkling
+:Sparkling rdf:type owl:Class ;
+           rdfs:subClassOf :Variety ;
+           rdfs:comment "Sparkling wine." ;
+           rdfs:sameAs "https://dbpedia.org/page/Sparkling_wine" .
+
+
+###  http://www.semanticweb.org/atorres/ontologies/2023/3/spanish_wine_ontology#Variety
+:Variety rdf:type owl:Class ;
+         rdfs:comment "Wine varieties." .
+
+
+###  http://www.semanticweb.org/atorres/ontologies/2023/3/spanish_wine_ontology#White
+:White rdf:type owl:Class ;
+       rdfs:subClassOf :Variety ;
+       rdfs:comment "White wine." ;
+       rdfs:sameAs "https://dbpedia.org/page/White_wine" .
+
+
+###  http://www.semanticweb.org/atorres/ontologies/2023/3/spanish_wine_ontology#Wine
+:Wine rdf:type owl:Class ;
+      rdfs:subClassOf [ rdf:type owl:Restriction ;
+                        owl:onProperty :hasProductionYear ;
+                        owl:someValuesFrom :ProductionDate
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :hasProducer ;
+                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                        owl:onClass :Producer
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :hasRegion ;
+                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                        owl:onClass :Region
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :hasVariety ;
+                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                        owl:onClass :Variety
+                      ] ;
+      rdfs:comment "Wine class to instance." ;
+      rdfs:sameAs "https://dbpedia.org/page/Wine" .
+
+
+###  http://www.semanticweb.org/atorres/ontologies/2023/3/spanish_wine_ontology#WineProfile
+:WineProfile rdf:type owl:Class ;
+             rdfs:comment "Wine profile data." .
+
+
+###  http://www.semanticweb.org/atorres/ontologies/2023/3/spanish_wine_ontology#WineRating
+:WineRating rdf:type owl:Class ;
+            rdfs:comment "Wine rating data." .
+
+
+###  http://www.semanticweb.org/atorres/ontologies/2023/3/spanish_wine_ontology#Winery
+:Winery rdf:type owl:Class ;
+        rdfs:subClassOf :Producer ;
+        rdfs:comment "Winery class." .
+
+
+###  http://www.semanticweb.org/atorres/ontologies/2023/3/spanish_wine_ontology#Year
+:Year rdf:type owl:Class ;
+      rdfs:subClassOf :ProductionDate ;
+      rdfs:comment "Year of production." .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/atorres/ontologies/2023/3/spanish_wine_ontology#AGE
+:AGE rdf:type owl:NamedIndividual ,
+              :Winery .
+
+
+###  http://www.semanticweb.org/atorres/ontologies/2023/3/spanish_wine_ontology#Argila_Reserva_3_Anys_Brut_Nature
+:Argila_Reserva_3_Anys_Brut_Nature rdf:type owl:NamedIndividual ,
+                                            :Wine ;
+                                   :hasProducer :Mas_Bertran ;
+                                   :hasProductionYear <http://www.semanticweb.org/atorres/ontologies/2023/3/spanish_wine_ontology#2013> ;
+                                   :hasRegion :Penedes ;
+                                   :hasVariety :Sparkling_Wine ;
+                                   :hasAcidityOf 3 ;
+                                   :hasBodyOf 2 ;
+                                   :hasPrice 21.60 ;
+                                   :hasRating 4.3 ;
+                                   :hasReviews 44 .
+
+
+###  http://www.semanticweb.org/atorres/ontologies/2023/3/spanish_wine_ontology#Fuenmayor_Gran_Reserva
+:Fuenmayor_Gran_Reserva rdf:type owl:NamedIndividual ,
+                                 :Wine ;
+                        :hasProducer :AGE ;
+                        :hasProductionYear <http://www.semanticweb.org/atorres/ontologies/2023/3/spanish_wine_ontology#1959> ;
+                        :hasRegion :Rioja ;
+                        :hasVariety :Rioja_Red ;
+                        :hasAcidityOf 3 ;
+                        :hasBodyOf 4 ;
+                        :hasPrice 230.0 ;
+                        :hasRating 4.3 ;
+                        :hasReviews 29 .
+
+
+###  http://www.semanticweb.org/atorres/ontologies/2023/3/spanish_wine_ontology#Gramona
+:Gramona rdf:type owl:NamedIndividual ,
+                  :Winery .
+
+
+###  http://www.semanticweb.org/atorres/ontologies/2023/3/spanish_wine_ontology#Mas_Bertran
+:Mas_Bertran rdf:type owl:NamedIndividual ,
+                      :Winery .
+
+
+###  http://www.semanticweb.org/atorres/ontologies/2023/3/spanish_wine_ontology#Penedes
+:Penedes rdf:type owl:NamedIndividual ,
+                  :Spain .
+
+
+###  http://www.semanticweb.org/atorres/ontologies/2023/3/spanish_wine_ontology#Rioja
+:Rioja rdf:type owl:NamedIndividual ,
+                :Spain .
+
+
+###  http://www.semanticweb.org/atorres/ontologies/2023/3/spanish_wine_ontology#Rioja_Red
+:Rioja_Red rdf:type owl:NamedIndividual ,
+                    :Red .
+
+
+###  http://www.semanticweb.org/atorres/ontologies/2023/3/spanish_wine_ontology#Sauvignon_Blanc
+:Sauvignon_Blanc rdf:type owl:NamedIndividual ,
+                          :White .
+
+
+###  http://www.semanticweb.org/atorres/ontologies/2023/3/spanish_wine_ontology#Savinat_Sauvignon_Blanc
+:Savinat_Sauvignon_Blanc rdf:type owl:NamedIndividual ,
+                                  :Wine ;
+                         :hasProducer :Gramona ;
+                         :hasProductionYear <http://www.semanticweb.org/atorres/ontologies/2023/3/spanish_wine_ontology#2019> ;
+                         :hasRegion :Penedes ;
+                         :hasVariety :Sauvignon_Blanc ;
+                         :hasAcidityOf 3 ;
+                         :hasBodyOf 3 ;
+                         :hasPrice 17.90 ;
+                         :hasRating 4.4 ;
+                         :hasReviews 41 .
+
+
+###  http://www.semanticweb.org/atorres/ontologies/2023/3/spanish_wine_ontology#Sparkling_Wine
+:Sparkling_Wine rdf:type owl:NamedIndividual ,
+                         :Sparkling .
+
+
+###  http://www.semanticweb.org/atorres/ontologies/2023/3/spanish_wine_ontology#1959
+<http://www.semanticweb.org/atorres/ontologies/2023/3/spanish_wine_ontology#1959> rdf:type owl:NamedIndividual ,
+                                                                                           :Year .
+
+
+###  http://www.semanticweb.org/atorres/ontologies/2023/3/spanish_wine_ontology#2013
+<http://www.semanticweb.org/atorres/ontologies/2023/3/spanish_wine_ontology#2013> rdf:type owl:NamedIndividual ,
+                                                                                           :Year .
+
+
+###  http://www.semanticweb.org/atorres/ontologies/2023/3/spanish_wine_ontology#2019
+<http://www.semanticweb.org/atorres/ontologies/2023/3/spanish_wine_ontology#2019> rdf:type owl:NamedIndividual ,
+                                                                                           :Year .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Fortified
+                :Red
+                :Sparkling
+                :White
+              )
+] .
+
+
+#################################################################
+#    Rules
+#################################################################
+
+<http://www.semanticweb.org/atorres/ontologies/2023/3/spanish_wine_ontology/w> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+<http://www.semanticweb.org/atorres/ontologies/2023/3/spanish_wine_ontology/p> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+<http://www.semanticweb.org/atorres/ontologies/2023/3/spanish_wine_ontology/y> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "" ;
+   rdfs:label "Review rules" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Wine ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/atorres/ontologies/2023/3/spanish_wine_ontology/w>
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#classPredicate> :Num_Reviews ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/atorres/ontologies/2023/3/spanish_wine_ontology/p>
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasReviews ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/atorres/ontologies/2023/3/spanish_wine_ontology/w> ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument2> <http://www.semanticweb.org/atorres/ontologies/2023/3/spanish_wine_ontology/p>
+                                                                           ] ;
+                                                                 rdf:rest rdf:nil
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasRating ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/atorres/ontologies/2023/3/spanish_wine_ontology/w> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> <http://www.semanticweb.org/atorres/ontologies/2023/3/spanish_wine_ontology/p>
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "" ;
+   rdfs:label "Price rules" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Wine ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/atorres/ontologies/2023/3/spanish_wine_ontology/w>
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#classPredicate> :Price ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/atorres/ontologies/2023/3/spanish_wine_ontology/p>
+                                                                ] ;
+                                                      rdf:rest rdf:nil
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasPrice ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/atorres/ontologies/2023/3/spanish_wine_ontology/w> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> <http://www.semanticweb.org/atorres/ontologies/2023/3/spanish_wine_ontology/p>
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "" ;
+   rdfs:label "Date rules" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Wine ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/atorres/ontologies/2023/3/spanish_wine_ontology/w>
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#classPredicate> :Year ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/atorres/ontologies/2023/3/spanish_wine_ontology/y>
+                                                                ] ;
+                                                      rdf:rest rdf:nil
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasProductionYear ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/atorres/ontologies/2023/3/spanish_wine_ontology/w> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> <http://www.semanticweb.org/atorres/ontologies/2023/3/spanish_wine_ontology/y>
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+###  Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/
