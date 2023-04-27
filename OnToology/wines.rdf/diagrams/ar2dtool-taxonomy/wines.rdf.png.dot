@@ -1,0 +1,20 @@
+digraph ar2dtool_diagram { 
+rankdir=LR;
+size="1000"
+node [shape = rectangle, color="black"]; "spanish_wine_ontology:Rating" "spanish_wine_ontology:Sparkling" "spanish_wine_ontology:Producer" "spanish_wine_ontology:Num_Reviews" "spanish_wine_ontology:Winery" "spanish_wine_ontology:White" "spanish_wine_ontology:Europe" "spanish_wine_ontology:DistributionData" "spanish_wine_ontology:Variety" "spanish_wine_ontology:Spain" "spanish_wine_ontology:ProductionDate" "spanish_wine_ontology:Year" "spanish_wine_ontology:Region" "spanish_wine_ontology:Red" "spanish_wine_ontology:WineProfile" "spanish_wine_ontology:WineRating" "spanish_wine_ontology:Fortified" "spanish_wine_ontology:Acidity" "spanish_wine_ontology:Price" "spanish_wine_ontology:Body" ; /*classes style*/
+	"spanish_wine_ontology:Red" -> "spanish_wine_ontology:Variety" [ label = "rdfs:subClassOf" ];
+	"spanish_wine_ontology:Body" -> "spanish_wine_ontology:WineProfile" [ label = "rdfs:subClassOf" ];
+	"spanish_wine_ontology:Rating" -> "spanish_wine_ontology:WineRating" [ label = "rdfs:subClassOf" ];
+	"spanish_wine_ontology:DistributionData" -> "spanish_wine_ontology:Producer" [ label = "rdfs:subClassOf" ];
+	"spanish_wine_ontology:Price" -> "spanish_wine_ontology:DistributionData" [ label = "rdfs:subClassOf" ];
+	"spanish_wine_ontology:Winery" -> "spanish_wine_ontology:Producer" [ label = "rdfs:subClassOf" ];
+	"spanish_wine_ontology:Sparkling" -> "spanish_wine_ontology:Variety" [ label = "rdfs:subClassOf" ];
+	"spanish_wine_ontology:Year" -> "spanish_wine_ontology:ProductionDate" [ label = "rdfs:subClassOf" ];
+	"spanish_wine_ontology:Fortified" -> "spanish_wine_ontology:Variety" [ label = "rdfs:subClassOf" ];
+	"spanish_wine_ontology:Num_Reviews" -> "spanish_wine_ontology:WineRating" [ label = "rdfs:subClassOf" ];
+	"spanish_wine_ontology:Europe" -> "spanish_wine_ontology:Region" [ label = "rdfs:subClassOf" ];
+	"spanish_wine_ontology:White" -> "spanish_wine_ontology:Variety" [ label = "rdfs:subClassOf" ];
+	"spanish_wine_ontology:Spain" -> "spanish_wine_ontology:Europe" [ label = "rdfs:subClassOf" ];
+	"spanish_wine_ontology:Acidity" -> "spanish_wine_ontology:WineProfile" [ label = "rdfs:subClassOf" ];
+
+}
